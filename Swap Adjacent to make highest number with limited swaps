@@ -1,0 +1,44 @@
+public class SwapForBiggest {
+    public static void main(String[] args) {
+        int[] arr = {3, 8, 9};
+        //int[] arr = {1, 5, 2, 9, 3, 7, 2, 8, 9, 3};
+
+        int swaps = 1;
+        swapToGetHighest(arr, swaps);
+
+        for (int a : arr) {
+            System.out.print(a);
+        }
+        System.out.println();
+    }
+
+    private static void swapToGetHighest(int[] arr, int swaps) {
+        if (swaps == 0) return;
+        int i = 0;
+        while (swaps > 0) {
+            int maxIndex = maxNumber(arr, i, arr.length, swaps);
+            swaps = (swaps - (maxIndex - i));
+
+            int start = i;
+            int end = maxIndex;
+            while (end > start) {
+                int temp = arr[end];
+                arr[end] = arr[end - 1];
+                arr[end - 1] = temp;
+                end--;
+            }
+
+            i++;
+        }
+    }
+
+    private static int maxNumber(int[] arr, int start, int len, int allowedSwaps) {
+        int maxIndex = start;
+        for (int i = start + 1; i < len && i <= start + allowedSwaps; i++) {
+            if (arr[i] > arr[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
+    }
+}
