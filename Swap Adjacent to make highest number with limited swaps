@@ -1,3 +1,8 @@
+/*Given a array int a[]={2,5,1,9,3,7,2,8,9,3} and the no. of swap operations.We are allowed to do swap operations.
+swap constraint: exchange only adjacent element.
+Find the max number that can be formed using swap operations./*
+
+
 public class SwapForBiggest {
     public static void main(String[] args) {
         int[] arr = {3, 8, 9};
